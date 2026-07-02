@@ -23,7 +23,7 @@ TikTok: Próximamente
 
 YouTube: Próximamente
 
-## Moderador
+## Desarrollador
 
 Aux Alexander
 
