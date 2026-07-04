@@ -29,4 +29,4 @@ Aux Alexander
 
 ---
 
-© 2026 SC LATAM Community
+© 2026 SC - Infinity Studios, Inc.
