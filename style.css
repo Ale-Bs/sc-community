@@ -5,6 +5,10 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     background:#050816;
     color:white;
@@ -85,14 +89,9 @@ nav a:hover{
     align-items:flex-start;
     text-align:center;
     padding-top:50px;
-
     background:
-    linear-gradient(
-        rgba(5,8,22,.75),
-        rgba(5,8,22,.92)
-    ),
-    url("https://raw.githubusercontent.com/SC-Alexander/sc-latam.community/refs/heads/main/Fondo3.jpg");
-
+        linear-gradient(rgba(5,8,22,.75), rgba(5,8,22,.92)),
+        url("Fondo3.jpg");
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
@@ -106,17 +105,9 @@ nav a:hover{
     font-size:190px;
     line-height:1;
     font-weight:900;
-
-    background:linear-gradient(
-        180deg,
-        #ffffff,
-        #8ab0ff,
-        #4a7dff
-    );
-
+    background:linear-gradient(180deg,#ffffff,#8ab0ff,#4a7dff);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-
     text-shadow:
         0 0 20px rgba(74,125,255,.5),
         0 0 40px rgba(74,125,255,.3);
@@ -127,14 +118,7 @@ nav a:hover{
     font-size:42px;
     font-weight:800;
     letter-spacing:8px;
-
-    background:linear-gradient(
-        180deg,
-        #ffffff,
-        #8ab0ff,
-        #4a7dff
-    );
-
+    background:linear-gradient(180deg,#ffffff,#8ab0ff,#4a7dff);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
@@ -170,11 +154,8 @@ nav a:hover{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:20px;
-
     padding:40px 8% 60px;
-
     margin-top:-100px;
-
     position:relative;
     z-index:10;
 }
@@ -200,11 +181,9 @@ nav a:hover{
 
 .card:hover{
     transform:translateY(-10px) scale(1.03);
-
     box-shadow:
         0 0 15px #4a7dff,
         0 0 30px rgba(74,125,255,.6);
-
     border-color:#4a7dff;
 }
 
@@ -268,10 +247,244 @@ footer h3{
     margin-bottom:10px;
 }
 
+/* SC / MINECRAFT SERVERS */
+
+.minecraft-page{
+    min-height:calc(100vh - 86px);
+    width:100%;
+    justify-content:center;
+    align-items:flex-start;
+    position:relative;
+    overflow:hidden;
+    padding:38px 6% 70px;
+    background:
+        radial-gradient(circle at 50% 18%, rgba(31,89,255,.28), transparent 34%),
+        linear-gradient(180deg, rgba(2,7,24,.58), rgba(2,7,24,.92)),
+        url("Fondo3.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.minecraft-page::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:
+        linear-gradient(90deg, transparent 0 8%, rgba(66,117,255,.05) 50%, transparent 92% 100%);
+}
+
+.minecraft-shell{
+    width:min(1180px,100%);
+    position:relative;
+    z-index:1;
+    text-align:center;
+}
+
+.minecraft-title h1{
+    font-size:clamp(118px,16vw,235px);
+    line-height:.8;
+    font-weight:900;
+    letter-spacing:-8px;
+    background:linear-gradient(180deg,#ffffff 8%,#c9d7ff 36%,#6f98ff 65%,#168cff 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    filter:
+        drop-shadow(0 0 10px rgba(255,255,255,.25))
+        drop-shadow(0 0 28px rgba(46,105,255,.55));
+}
+
+.minecraft-word{
+    margin-top:28px;
+    font-size:clamp(24px,3.6vw,54px);
+    font-weight:800;
+    letter-spacing:clamp(8px,1.5vw,18px);
+    color:#f7f9ff;
+    text-shadow:0 0 16px rgba(255,255,255,.18);
+}
+
+.servers-word{
+    margin-top:2px;
+    font-size:clamp(36px,5vw,72px);
+    font-weight:900;
+    letter-spacing:clamp(10px,1.8vw,24px);
+    background:linear-gradient(180deg,#6fb4ff,#1488ff 55%,#4f63ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    filter:drop-shadow(0 0 18px rgba(55,119,255,.48));
+}
+
+.minecraft-divider{
+    width:min(560px,72%);
+    margin:24px auto 18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+}
+
+.minecraft-divider span{
+    height:2px;
+    flex:1;
+    background:linear-gradient(90deg,transparent,#3a8cff);
+    box-shadow:0 0 12px rgba(58,140,255,.55);
+}
+
+.minecraft-divider span:last-child{
+    background:linear-gradient(90deg,#3a8cff,transparent);
+}
+
+.minecraft-divider b{
+    color:#4a91ff;
+    font-size:18px;
+    text-shadow:0 0 14px rgba(74,145,255,.9);
+}
+
+.minecraft-tagline{
+    margin:0 auto 38px;
+    font-size:clamp(14px,1.8vw,20px);
+    letter-spacing:1px;
+    color:#d8dded;
+}
+
+.minecraft-tagline strong{
+    color:#2f8dff;
+}
+
+.minecraft-cards{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:26px;
+    width:100%;
+    margin:0 auto;
+}
+
+.minecraft-btn{
+    min-height:205px;
+    display:grid;
+    grid-template-columns:86px 1fr 24px;
+    align-items:center;
+    gap:18px;
+    padding:28px 24px;
+    background:linear-gradient(135deg,rgba(7,15,43,.92),rgba(5,8,25,.88));
+    border:1px solid rgba(75,137,255,.7);
+    border-radius:20px;
+    text-decoration:none;
+    color:white;
+    position:relative;
+    overflow:hidden;
+    transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    backdrop-filter:blur(8px);
+}
+
+.minecraft-btn::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transition:.28s;
+    background:radial-gradient(circle at 20% 20%,rgba(255,255,255,.09),transparent 42%);
+}
+
+.minecraft-btn:hover,
+.minecraft-btn:focus-visible{
+    transform:translateY(-7px) scale(1.015);
+}
+
+.minecraft-btn:hover::before,
+.minecraft-btn:focus-visible::before{
+    opacity:1;
+}
+
+.mineos-card{
+    border-color:#2f8cff;
+    box-shadow:0 0 22px rgba(47,140,255,.26), inset 0 0 30px rgba(47,140,255,.05);
+}
+
+.pvp-card{
+    border-color:#8b43ff;
+    box-shadow:0 0 22px rgba(139,67,255,.22), inset 0 0 30px rgba(139,67,255,.05);
+}
+
+.events-card{
+    border-color:#f4a223;
+    box-shadow:0 0 22px rgba(244,162,35,.18), inset 0 0 30px rgba(244,162,35,.04);
+}
+
+.mineos-card:hover{
+    box-shadow:0 0 34px rgba(47,140,255,.48), inset 0 0 36px rgba(47,140,255,.09);
+}
+
+.pvp-card:hover{
+    box-shadow:0 0 34px rgba(139,67,255,.42), inset 0 0 36px rgba(139,67,255,.08);
+}
+
+.events-card:hover{
+    box-shadow:0 0 34px rgba(244,162,35,.34), inset 0 0 36px rgba(244,162,35,.07);
+}
+
+.minecraft-icon{
+    width:82px;
+    height:82px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:rgba(8,17,48,.78);
+    border:1px solid rgba(255,255,255,.08);
+    font-size:48px;
+    filter:drop-shadow(0 0 10px rgba(55,119,255,.18));
+}
+
+.minecraft-info{
+    text-align:left;
+}
+
+.minecraft-info h2{
+    margin:0 0 10px;
+    font-size:clamp(22px,2vw,32px);
+    line-height:1.05;
+    color:#f4f7ff;
+}
+
+.mineos-card .minecraft-info h2{
+    color:#66a5ff;
+}
+
+.pvp-card .minecraft-info h2{
+    color:#d8c0ff;
+}
+
+.events-card .minecraft-info h2{
+    color:#ffe3b0;
+}
+
+.minecraft-info p{
+    margin:0;
+    font-size:16px;
+    line-height:1.45;
+    color:#d6d9e5;
+}
+
+.arrow{
+    font-size:46px;
+    line-height:1;
+    font-weight:300;
+}
+
+.mineos-card .arrow{color:#2f8cff;}
+.pvp-card .arrow{color:#9b59ff;}
+.events-card .arrow{color:#f4a223;}
+
+.minecraft-back{
+    margin-top:36px;
+    background:linear-gradient(90deg,#5d2cff,#2f43ff);
+    box-shadow:0 0 22px rgba(82,55,255,.25);
+}
+
 /* MOBILE */
 
 @media(max-width:768px){
-
     header{
         flex-direction:column;
         gap:15px;
@@ -312,76 +525,63 @@ footer h3{
     .icon{
         font-size:30px;
     }
-    
-} /* ========= MINECRAFT SERVERS ========= */
 
-.minecraft-cards{
-    width:100%;
-    max-width:750px;
-    margin:40px auto;
-    display:flex;
-    flex-direction:column;
-    gap:22px;
-}
+    .minecraft-page{
+        min-height:100vh;
+        padding:34px 18px 60px;
+        background-position:center top;
+    }
 
-.minecraft-btn{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    background:#101933;
-    border:1px solid rgba(74,125,255,.35);
-    border-radius:18px;
-    padding:22px 28px;
-    text-decoration:none;
-    color:white;
-    transition:.35s;
-}
+    .minecraft-title h1{
+        font-size:clamp(105px,34vw,160px);
+        letter-spacing:-5px;
+    }
 
-.minecraft-btn:hover{
-    transform:translateY(-4px);
-    border-color:#4a7dff;
-    box-shadow:
-        0 0 18px rgba(74,125,255,.45);
-}
+    .minecraft-word{
+        margin-top:24px;
+        font-size:22px;
+        letter-spacing:7px;
+    }
 
-.minecraft-icon{
-    font-size:55px;
-    margin-right:20px;
-}
+    .servers-word{
+        font-size:34px;
+        letter-spacing:9px;
+    }
 
-.minecraft-info{
-    flex:1;
-    text-align:left;
-}
+    .minecraft-divider{
+        width:86%;
+        margin-top:20px;
+    }
 
-.minecraft-info h2{
-    color:#4a7dff;
-    margin-bottom:6px;
-    font-size:28px;
-}
+    .minecraft-tagline{
+        margin-bottom:28px;
+        font-size:13px;
+        padding:0 8px;
+    }
 
-.minecraft-info p{
-    color:#d9d9d9;
-    font-size:16px;
-}
-
-.arrow{
-    font-size:42px;
-    color:#4a7dff;
-}
-
-@media(max-width:768px){
+    .minecraft-cards{
+        grid-template-columns:1fr;
+        gap:18px;
+        max-width:520px;
+    }
 
     .minecraft-btn{
-        padding:18px;
+        min-height:142px;
+        grid-template-columns:66px 1fr 18px;
+        gap:14px;
+        padding:20px 18px;
+        border-radius:17px;
     }
 
     .minecraft-icon{
-        font-size:42px;
+        width:64px;
+        height:64px;
+        font-size:38px;
     }
 
     .minecraft-info h2{
         font-size:22px;
+        margin-bottom:6px;
     }
 
     .minecraft-info p{
@@ -389,7 +589,45 @@ footer h3{
     }
 
     .arrow{
+        font-size:36px;
+    }
+}
+
+@media(max-width:480px){
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .minecraft-title h1{
+        font-size:108px;
+    }
+
+    .minecraft-word{
+        font-size:18px;
+        letter-spacing:5px;
+    }
+
+    .servers-word{
+        font-size:28px;
+        letter-spacing:7px;
+    }
+
+    .minecraft-tagline{
+        font-size:12px;
+    }
+
+    .minecraft-btn{
+        grid-template-columns:58px 1fr 16px;
+        padding:18px 15px;
+    }
+
+    .minecraft-icon{
+        width:56px;
+        height:56px;
         font-size:32px;
     }
 
+    .minecraft-info h2{
+        font-size:20px;
+    }
 }
