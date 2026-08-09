@@ -18,10 +18,10 @@
     </div>
 
     <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#torneos">Torneos</a>
-        <a href="#" onclick="mostrarServidores()">Servidores</a>
-        <a href="#historial">Historial</a>
+        <a href="#inicio" onclick="volverA('inicio')">Inicio</a>
+        <a href="#torneos" onclick="volverA('torneos')">Torneos</a>
+        <a href="#" onclick="mostrarServidores(); return false;">Servidores</a>
+        <a href="#historial" onclick="volverA('historial')">Historial</a>
     </nav>
 
     <a class="btn-header"
@@ -60,33 +60,25 @@
     <div class="card">
         <div class="icon">🏆</div>
         <h2>TORNEOS</h2>
-        <p>
-            Organizamos torneos competitivos para jugadores de Mobile Legends.
-        </p>
+        <p>Organizamos torneos competitivos para jugadores de Mobile Legends.</p>
     </div>
 
     <div class="card">
         <div class="icon">📝</div>
         <h2>REGISTRO</h2>
-        <p>
-            Inscríbete y forma parte de nuestra comunidad.
-        </p>
+        <p>Inscríbete y forma parte de nuestra comunidad.</p>
     </div>
 
     <div class="card">
         <div class="icon">⚔️</div>
         <h2>MODALIDAD</h2>
-        <p>
-            Las modalidades serán anunciadas en el grupo oficial.
-        </p>
+        <p>Las modalidades serán anunciadas en el grupo oficial.</p>
     </div>
 
     <div class="card">
         <div class="icon">🎮</div>
         <h2>PARTICIPACIÓN</h2>
-        <p>
-            Todos los torneos son gratuitos por el momento.
-        </p>
+        <p>Todos los torneos son gratuitos por el momento.</p>
     </div>
 
 </section>
@@ -96,7 +88,6 @@
     <h2>🏆 HISTORIAL DE CAMPEONES</h2>
 
     <div class="champions-grid">
-
         <div class="champion-card">
             <h3>TORNEO #1</h3>
             <p>Campeón: Por definir</p>
@@ -111,20 +102,17 @@
             <h3>TORNEO #3</h3>
             <p>Campeón: Por definir</p>
         </div>
-
     </div>
 
 </section>
 
 <section class="social">
-
     <h2>REDES SOCIALES</h2>
 
     <div class="social-box">
         <div>🎵 TikTok - Próximamente</div>
         <div>▶️ YouTube - Próximamente</div>
     </div>
-
 </section>
 
 <footer>
@@ -132,96 +120,94 @@
     <p>Todos los derechos reservados.</p>
     <p>© Copyright 2026. SC - Infinity Studios, Inc.</p>
 </footer>
+
 <!-- PANTALLA MINECRAFT -->
+<section id="minecraft-page" class="minecraft-page" style="display:none;">
+    <div class="minecraft-shell">
 
-<section id="minecraft-page" class="hero" style="display:none;">
-
-    <div class="hero-content">
-
-        <div class="hero-logo">
+        <div class="minecraft-title">
             <h1>SC</h1>
-            <h2>MINECRAFT SERVERS</h2>
+            <div class="minecraft-word">MINECRAFT</div>
+            <div class="servers-word">SERVERS</div>
         </div>
+
+        <div class="minecraft-divider" aria-hidden="true">
+            <span></span><b>◆</b><span></span>
+        </div>
+
+        <p class="minecraft-tagline">ELIGE TU AVENTURA. ENTRA AL MUNDO <strong>SC</strong>.</p>
 
         <div class="minecraft-cards">
 
-            <a href="https://add.aternos.org/SCLatamCommunity"
+            <a href="https://add.aternos.org/Sin_name"
                target="_blank"
-               class="minecraft-btn">
-
+               class="minecraft-btn mineos-card">
                 <span class="minecraft-icon">🌎</span>
-
                 <div class="minecraft-info">
-                    <h2>SC SURVIVAL</h2>
-                    <p>Únete al servidor Oficial.</p>
+                    <h2>SC MineOS</h2>
+                    <p>Servidor oficial de Minecraft</p>
                 </div>
-
                 <span class="arrow">›</span>
-
             </a>
 
-            <a href="#" class="minecraft-btn">
-
+            <a href="#" class="minecraft-btn pvp-card" onclick="return false;">
                 <span class="minecraft-icon">⚔️</span>
-
                 <div class="minecraft-info">
                     <h2>ARENA PVP</h2>
                     <p>Próximamente.</p>
                 </div>
-
                 <span class="arrow">›</span>
-
             </a>
 
-            <a href="#" class="minecraft-btn">
-
+            <a href="#" class="minecraft-btn events-card" onclick="return false;">
                 <span class="minecraft-icon">🎊</span>
-
                 <div class="minecraft-info">
                     <h2>SC EVENTOS</h2>
                     <p>Próximamente.</p>
                 </div>
-
                 <span class="arrow">›</span>
-
             </a>
 
         </div>
 
-        <a class="btn-main" href="#" onclick="volverInicio()">
+        <a class="btn-main minecraft-back" href="#inicio" onclick="volverA('inicio')">
             ⬅ VOLVER AL INICIO
         </a>
 
     </div>
-
 </section>
 
-    <script>
-
+<script>
 function mostrarServidores(){
-
     document.getElementById("inicio").style.display="none";
     document.getElementById("torneos").style.display="none";
     document.getElementById("historial").style.display="none";
-
     document.querySelector(".social").style.display="none";
     document.querySelector("footer").style.display="none";
-
     document.getElementById("minecraft-page").style.display="flex";
+    window.scrollTo({top:0, behavior:"smooth"});
 }
 
 function volverInicio(){
+    volverA('inicio');
+}
 
+function volverA(seccion){
+    document.getElementById("minecraft-page").style.display="none";
     document.getElementById("inicio").style.display="flex";
     document.getElementById("torneos").style.display="grid";
     document.getElementById("historial").style.display="block";
-
     document.querySelector(".social").style.display="block";
     document.querySelector("footer").style.display="block";
 
-    document.getElementById("minecraft-page").style.display="none";
+    requestAnimationFrame(() => {
+        const destino = document.getElementById(seccion);
+        if(destino){
+            destino.scrollIntoView({behavior:"smooth", block:"start"});
+        }
+    });
 }
-        
 </script>
+
 </body>
 </html>
