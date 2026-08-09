@@ -1,0 +1,254 @@
+@media (max-width: 768px){
+    body{overflow-x:hidden;}
+
+    header{
+        position:sticky;
+        top:0;
+        padding:10px 14px 12px;
+        gap:10px;
+        background:rgba(5,8,22,.97);
+    }
+
+    .logo{
+        width:100%;
+        justify-content:center;
+        gap:9px;
+    }
+
+    .logo img{height:38px;}
+    .logo span{font-size:13px;letter-spacing:.7px;}
+
+    nav{
+        width:100%;
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        gap:6px;
+    }
+
+    nav a{
+        text-align:center;
+        font-size:12px;
+        padding:9px 4px;
+        border-radius:7px;
+        background:rgba(255,255,255,.025);
+        border:1px solid rgba(255,255,255,.05);
+    }
+
+    nav a::after{display:none;}
+
+    .btn-header{
+        width:100%;
+        max-width:340px;
+        text-align:center;
+        padding:10px 16px;
+        font-size:13px;
+    }
+
+    .home-hero{
+        min-height:350px;
+        padding:24px 16px 74px;
+        background-position:center top;
+    }
+
+    .home-title h1{
+        font-size:88px;
+        letter-spacing:-4px;
+        line-height:.88;
+    }
+
+    .home-title h2{
+        margin-top:5px;
+        font-size:18px;
+        letter-spacing:3px;
+        line-height:1.2;
+    }
+
+    .home-slogan{
+        margin-top:17px;
+        font-size:16px;
+        line-height:1.35;
+        padding:0 8px;
+    }
+
+    .home-main-btn{
+        min-width:0;
+        width:min(100%,300px);
+        margin-top:22px;
+        padding:13px 18px;
+        font-size:13px;
+    }
+
+    .home-cards{
+        margin-top:-28px;
+        padding:0 14px 24px;
+        grid-template-columns:1fr;
+        gap:14px;
+    }
+
+    .home-card{
+        min-height:0;
+        padding:22px 18px 18px;
+        border-radius:14px;
+    }
+
+    .home-card .icon{font-size:34px;margin-bottom:9px;}
+    .home-card h2{font-size:20px;margin-bottom:8px;}
+    .home-card p{font-size:14px;min-height:0;margin-bottom:18px;}
+    .card-line{margin-bottom:13px;}
+    .card-action{padding:11px 10px;font-size:12px;}
+
+    .home-bottom{
+        grid-template-columns:1fr;
+        gap:16px;
+        padding:0 14px 34px;
+    }
+
+    .home-panel{
+        padding:18px 14px;
+        border-radius:14px;
+    }
+
+    .champions-title,
+    .social-title{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:8px;
+        margin-bottom:14px;
+        width:100%;
+    }
+
+    .champions-title h2,
+    .social-title h2{
+        font-size:15px !important;
+        line-height:1.15;
+        white-space:nowrap;
+        letter-spacing:.2px;
+        text-align:center;
+    }
+
+    .champion-title-icon,
+    .social-share-icon{
+        width:22px !important;
+        height:22px !important;
+        flex:0 0 22px;
+    }
+
+    .champion-title-line,
+    .social-title-line{
+        flex:1 1 24px;
+        max-width:48px;
+        min-width:18px;
+    }
+
+    .champions-grid{
+        grid-template-columns:1fr;
+        gap:10px;
+    }
+
+    .champion-card{
+        padding:15px 10px;
+        border-radius:9px;
+    }
+
+    .champion-icon{font-size:27px;}
+    .panel-action{width:100%;font-size:12px;padding:10px;}
+
+    .social-subtitle{
+        font-size:13px;
+        line-height:1.4;
+        margin:-2px 0 15px;
+        padding:0 5px;
+    }
+
+    .social-box{
+        grid-template-columns:1fr;
+        gap:10px;
+    }
+
+    .social-card{
+        padding:17px 12px 12px;
+        border-radius:10px;
+    }
+
+    .social-brand{
+        gap:10px;
+        margin-bottom:13px !important;
+    }
+
+    .brand-name{font-size:20px !important;}
+    .youtube-logo{width:43px;height:30px;font-size:16px !important;}
+    .social-brand svg{width:36px !important;height:36px !important;}
+    .social-coming{padding:9px 10px !important;font-size:11px !important;}
+
+    footer{
+        padding:28px 16px;
+        margin-top:0;
+    }
+
+    footer h3{font-size:15px;}
+    footer p{font-size:12px;line-height:1.5;}
+
+    .minecraft-page{
+        padding:26px 14px 44px;
+    }
+
+    .minecraft-title h1{
+        font-size:96px;
+        letter-spacing:-4px;
+    }
+
+    .minecraft-word{
+        margin-top:18px;
+        font-size:18px;
+        letter-spacing:5px;
+    }
+
+    .servers-word{
+        font-size:27px;
+        letter-spacing:6px;
+    }
+
+    .minecraft-divider{width:82%;margin:18px auto 14px;}
+    .minecraft-tagline{font-size:12px;line-height:1.45;margin-bottom:24px;}
+
+    .minecraft-cards{
+        grid-template-columns:1fr;
+        gap:13px;
+    }
+
+    .minecraft-btn{
+        min-height:116px;
+        grid-template-columns:54px 1fr 15px;
+        gap:12px;
+        padding:16px 14px;
+        border-radius:15px;
+    }
+
+    .minecraft-icon{
+        width:52px;
+        height:52px;
+        font-size:29px;
+    }
+
+    .minecraft-info h2{font-size:19px;margin-bottom:5px;}
+    .minecraft-info p{font-size:12px;}
+    .arrow{font-size:31px;}
+
+    .minecraft-back{
+        width:100%;
+        max-width:320px;
+        padding:12px 16px;
+        font-size:12px;
+        margin-top:24px;
+    }
+}
+
+@media (max-width: 390px){
+    nav a{font-size:11px;padding:8px 2px;}
+    .home-title h1{font-size:78px;}
+    .home-title h2{font-size:16px;letter-spacing:2.5px;}
+    .home-slogan{font-size:14px;}
+    .champions-title h2,.social-title h2{font-size:13px !important;}
+    .champion-title-line,.social-title-line{max-width:32px;}
+}
