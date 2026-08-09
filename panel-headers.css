@@ -1,0 +1,99 @@
+/* Compact headers for Historial de Campeones and Redes Sociales */
+.champions-title,
+.social-title{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:18px;
+    flex-wrap:nowrap;
+}
+
+.champions-title h2,
+.social-title h2{
+    margin:0;
+    font-size:clamp(17px,2vw,22px);
+    line-height:1;
+    letter-spacing:.4px;
+    white-space:nowrap;
+    color:#fff;
+}
+
+.champion-title-icon,
+.social-share-icon{
+    width:30px;
+    height:30px;
+    flex:0 0 30px;
+}
+
+.champion-title-icon{
+    filter:drop-shadow(0 0 8px rgba(242,189,66,.35));
+}
+
+.social-share-icon{
+    fill:none;
+    stroke:#8d59ff;
+    stroke-width:4;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    filter:drop-shadow(0 0 8px rgba(141,89,255,.45));
+}
+
+.champion-title-line,
+.social-title-line{
+    display:block !important;
+    flex:1 1 56px;
+    max-width:80px;
+    min-width:24px;
+    height:1px;
+    padding:0 !important;
+    border-radius:0 !important;
+    background:linear-gradient(90deg,transparent,currentColor) !important;
+    opacity:.8;
+}
+
+.champions-title .champion-title-line{
+    color:#f2bd42;
+}
+
+.social-title .social-title-line{
+    color:#8d59ff;
+}
+
+.champions-title .champion-title-line:last-child,
+.social-title .social-title-line:last-child{
+    background:linear-gradient(90deg,currentColor,transparent) !important;
+}
+
+/* Prevent generic span rules from inflating decorative lines */
+.champions-title > span,
+.social-title > span{
+    font-size:0 !important;
+}
+
+@media(max-width:520px){
+    .champions-title,
+    .social-title{
+        gap:7px;
+        margin-bottom:15px;
+    }
+
+    .champions-title h2,
+    .social-title h2{
+        font-size:15px;
+        letter-spacing:.2px;
+    }
+
+    .champion-title-icon,
+    .social-share-icon{
+        width:24px;
+        height:24px;
+        flex-basis:24px;
+    }
+
+    .champion-title-line,
+    .social-title-line{
+        min-width:10px;
+        max-width:28px;
+    }
+}
