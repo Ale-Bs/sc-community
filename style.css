@@ -5,9 +5,7 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth;}
 
 body{
     background:#050816;
@@ -15,240 +13,266 @@ body{
     overflow-x:hidden;
 }
 
-/* HEADER */
-
 header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:15px 8%;
-    background:#0b1024;
+    padding:15px 5%;
+    background:rgba(5,8,22,.96);
     position:sticky;
     top:0;
     z-index:1000;
-    border-bottom:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(76,113,255,.18);
+    backdrop-filter:blur(12px);
 }
 
-.logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo img{height:50px;width:auto;border-radius:8px;}
+.logo span{font-size:18px;font-weight:800;letter-spacing:1px;white-space:nowrap;}
 
-.logo img{
-    height:55px;
-    width:auto;
-    border-radius:8px;
-}
-
-.logo span{
-    color:white;
-    font-size:18px;
-    font-weight:700;
-    letter-spacing:1px;
-    white-space:nowrap;
-}
-
-nav{
-    display:flex;
-    gap:25px;
-}
-
+nav{display:flex;gap:28px;}
 nav a{
-    color:white;
+    color:#fff;
     text-decoration:none;
-    font-weight:600;
-    transition:.3s;
+    font-weight:700;
+    font-size:14px;
+    transition:.25s;
+    position:relative;
 }
-
-nav a:hover{
-    color:#4a7dff;
+nav a:hover{color:#4a7dff;}
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:-9px;
+    height:2px;
+    background:#4a7dff;
+    transform:scaleX(0);
+    transition:.25s;
+    box-shadow:0 0 10px #4a7dff;
 }
+nav a:hover::after{transform:scaleX(1);}
 
 .btn-header{
-    background:#1e5eff;
+    background:linear-gradient(90deg,#1958ff,#2c79ff);
     color:white;
     text-decoration:none;
     padding:12px 20px;
     border-radius:8px;
-    font-weight:bold;
+    font-weight:800;
+    box-shadow:0 0 18px rgba(30,94,255,.3);
     transition:.3s;
 }
+.btn-header:hover{transform:translateY(-2px);box-shadow:0 0 26px rgba(30,94,255,.55);}
 
-.btn-header:hover{
-    transform:translateY(-2px);
-    box-shadow:0 0 15px rgba(30,94,255,.5);
-}
-
-/* HERO */
-
+/* INICIO */
 .hero{
-    min-height:70vh;
     display:flex;
     justify-content:center;
-    align-items:flex-start;
     text-align:center;
-    padding-top:50px;
     background:
-        linear-gradient(rgba(5,8,22,.75), rgba(5,8,22,.92)),
+        linear-gradient(rgba(4,8,26,.55),rgba(4,8,26,.92)),
         url("Fondo3.jpg");
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
 }
 
-.hero-content{
-    width:100%;
+.home-hero{
+    min-height:430px;
+    align-items:center;
+    padding:38px 20px 95px;
+    position:relative;
+    overflow:hidden;
 }
+
+.home-hero::after{
+    content:"";
+    position:absolute;
+    inset:auto 0 0;
+    height:140px;
+    background:linear-gradient(transparent,#050816);
+}
+
+.home-hero-content{width:100%;position:relative;z-index:2;}
 
 .hero-logo h1{
     font-size:190px;
-    line-height:1;
+    line-height:.85;
     font-weight:900;
-    background:linear-gradient(180deg,#ffffff,#8ab0ff,#4a7dff);
+    background:linear-gradient(180deg,#ffffff 5%,#a8c2ff 44%,#3979ff 100%);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-    text-shadow:
-        0 0 20px rgba(74,125,255,.5),
-        0 0 40px rgba(74,125,255,.3);
+    filter:drop-shadow(0 0 20px rgba(56,116,255,.5));
 }
 
-.hero-logo h2{
-    margin-top:-10px;
-    font-size:42px;
-    font-weight:800;
-    letter-spacing:8px;
-    background:linear-gradient(180deg,#ffffff,#8ab0ff,#4a7dff);
+.home-title h1{font-size:clamp(120px,15vw,215px);letter-spacing:-8px;}
+
+.hero-logo h2,
+.home-title h2{
+    margin-top:4px;
+    font-size:clamp(30px,4.2vw,60px);
+    font-weight:900;
+    letter-spacing:clamp(6px,1vw,14px);
+    background:linear-gradient(90deg,#ffffff 0 35%,#43a0ff 58%,#1669ff 100%);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
+    text-shadow:0 0 20px rgba(74,125,255,.15);
 }
 
-.slogan{
-    margin-top:20px;
-    font-size:28px;
-    font-weight:600;
+.slogan{margin-top:20px;font-size:28px;font-weight:700;}
+.home-slogan{
+    margin-top:22px;
+    font-size:clamp(18px,2.3vw,32px);
+    line-height:1.22;
+    letter-spacing:1px;
+    color:#f2f4ff;
+    text-shadow:0 2px 14px rgba(0,0,0,.6);
 }
+.home-slogan span{color:#2e88ff;}
 
 .btn-main{
     display:inline-block;
-    margin-top:35px;
-    background:#7b2cff;
-    color:white;
+    margin-top:30px;
+    color:#fff;
     text-decoration:none;
     padding:15px 35px;
     border-radius:10px;
-    font-weight:bold;
+    font-weight:800;
     transition:.3s;
 }
 
-.btn-main:hover{
-    transform:translateY(-3px) scale(1.05);
-    box-shadow:
-        0 0 15px #7b2cff,
-        0 0 30px rgba(123,44,255,.7);
+.home-main-btn{
+    background:linear-gradient(90deg,#6f25ff,#2750ff,#118dff);
+    min-width:270px;
+    box-shadow:0 0 24px rgba(79,65,255,.35);
 }
+.home-main-btn:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 0 34px rgba(57,99,255,.6);}
 
-/* TARJETAS */
-
+/* TARJETAS DEL INICIO */
 .cards{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:20px;
-    padding:40px 8% 60px;
-    margin-top:-100px;
+    gap:18px;
+    padding:0 4% 26px;
+}
+
+.home-cards{
+    margin-top:-55px;
     position:relative;
-    z-index:10;
+    z-index:20;
 }
 
 .card{
-    background:#101933;
-    padding:30px;
-    border-radius:15px;
-    border:1px solid rgba(255,255,255,.08);
-    transition:.35s;
-    text-align:center;
-}
-
-.icon{
-    font-size:40px;
-    margin-bottom:15px;
-}
-
-.card h2{
-    color:#4a7dff;
-    margin-bottom:15px;
-}
-
-.card:hover{
-    transform:translateY(-10px) scale(1.03);
-    box-shadow:
-        0 0 15px #4a7dff,
-        0 0 30px rgba(74,125,255,.6);
-    border-color:#4a7dff;
-}
-
-/* HISTORIAL */
-
-.champions{
-    padding:80px 8%;
-    text-align:center;
-}
-
-.champions h2{
-    margin-bottom:40px;
-}
-
-.champions-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.champion-card{
-    background:#101933;
-    padding:25px;
-    border-radius:15px;
-    border:1px solid rgba(255,255,255,.08);
-}
-
-/* REDES */
-
-.social{
-    padding:80px 8%;
-    text-align:center;
-}
-
-.social-box{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-    margin-top:30px;
-}
-
-.social-box div{
-    background:#101933;
-    padding:20px 35px;
+    background:linear-gradient(180deg,rgba(8,12,31,.97),rgba(4,8,22,.98));
+    padding:28px 24px 22px;
     border-radius:12px;
     border:1px solid rgba(255,255,255,.08);
-}
-
-/* FOOTER */
-
-footer{
-    background:#0b1024;
+    transition:.32s;
     text-align:center;
-    padding:40px;
-    margin-top:50px;
 }
 
-footer h3{
-    color:#4a7dff;
-    margin-bottom:10px;
+.home-card{min-height:280px;display:flex;flex-direction:column;align-items:center;}
+.home-card .icon{font-size:38px;margin-bottom:12px;filter:drop-shadow(0 0 8px currentColor);}
+.home-card h2{font-size:22px;color:#fff;margin-bottom:10px;}
+.home-card p{color:#d9dce8;line-height:1.45;font-size:15px;min-height:66px;}
+
+.card-line{width:55%;height:1px;background:linear-gradient(90deg,transparent,currentColor,transparent);margin-bottom:16px;opacity:.8;}
+
+.tournament-card{border-color:rgba(133,65,255,.55);color:#8e4bff;}
+.register-card{border-color:rgba(38,121,255,.55);color:#2987ff;}
+.mode-card{border-color:rgba(31,178,89,.5);color:#29c06b;}
+.participation-card{border-color:rgba(219,166,43,.52);color:#d9a52b;}
+
+.home-card:hover{transform:translateY(-8px);}
+.tournament-card:hover{box-shadow:0 0 26px rgba(133,65,255,.22);}
+.register-card:hover{box-shadow:0 0 26px rgba(38,121,255,.22);}
+.mode-card:hover{box-shadow:0 0 26px rgba(31,178,89,.2);}
+.participation-card:hover{box-shadow:0 0 26px rgba(219,166,43,.2);}
+
+.card-action{
+    margin-top:auto;
+    width:100%;
+    text-decoration:none;
+    color:#fff;
+    padding:11px 12px;
+    border-radius:6px;
+    font-weight:800;
+    font-size:13px;
 }
+.purple-action{background:linear-gradient(90deg,#5c1aa8,#7628d8);}
+.blue-action{background:linear-gradient(90deg,#1458c7,#197cec);}
+.green-action{background:linear-gradient(90deg,#087e3b,#15a94f);}
+.gold-action{background:linear-gradient(90deg,#8d6710,#ba8916);}
+
+/* PANELES INFERIORES */
+.home-bottom{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:20px;
+    padding:0 4% 50px;
+}
+
+.home-panel{
+    background:linear-gradient(180deg,rgba(7,10,29,.98),rgba(4,6,18,.98));
+    border:1px solid rgba(78,93,220,.28);
+    border-radius:12px;
+    padding:24px;
+    text-align:left;
+}
+
+.panel-title{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.panel-title span{font-size:30px;}
+.panel-title h2{font-size:22px;letter-spacing:.5px;}
+.champions-panel .panel-title span{color:#f2bd42;}
+.social-title span{color:#8d59ff;}
+
+.champions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.champion-card{
+    background:rgba(7,10,24,.9);
+    border:1px solid rgba(255,255,255,.08);
+    padding:18px 10px;
+    text-align:center;
+    border-radius:8px;
+}
+.champion-icon{font-size:31px;margin-bottom:8px;}
+.champion-card h3{font-size:14px;margin-bottom:8px;}
+.champion-card p{font-size:12px;color:#c9ccda;}
+.champion-card strong{display:block;margin-top:4px;color:#d8aa36;font-size:13px;}
+
+.panel-action{
+    display:block;
+    width:55%;
+    margin:18px auto 0;
+    text-align:center;
+    text-decoration:none;
+    color:#fff;
+    background:linear-gradient(90deg,#183eb6,#125ce8);
+    border-radius:6px;
+    padding:10px;
+    font-size:13px;
+    font-weight:800;
+}
+
+.social-subtitle{color:#cfd2df;margin:-8px 0 20px;font-size:14px;text-align:center;}
+.social-box{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.social-card{
+    background:#070a18;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:8px;
+    padding:22px 12px 12px;
+    text-align:center;
+}
+.social-card strong{display:block;font-size:21px;margin-bottom:18px;}
+.social-card span{display:block;padding:9px;border-radius:5px;font-size:12px;font-weight:800;color:#fff;}
+.tiktok-card span{background:linear-gradient(90deg,#451074,#7415a7);}
+.youtube-card span{background:linear-gradient(90deg,#8b1010,#c51b1b);}
+
+footer{background:#0b1024;text-align:center;padding:38px;margin-top:10px;}
+footer h3{color:#4a7dff;margin-bottom:10px;}
 
 /* SC / MINECRAFT SERVERS */
-
 .minecraft-page{
     min-height:calc(100vh - 86px);
     width:100%;
@@ -258,376 +282,85 @@ footer h3{
     overflow:hidden;
     padding:38px 6% 70px;
     background:
-        radial-gradient(circle at 50% 18%, rgba(31,89,255,.28), transparent 34%),
-        linear-gradient(180deg, rgba(2,7,24,.58), rgba(2,7,24,.92)),
+        radial-gradient(circle at 50% 18%,rgba(31,89,255,.28),transparent 34%),
+        linear-gradient(180deg,rgba(2,7,24,.58),rgba(2,7,24,.92)),
         url("Fondo3.jpg");
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
 }
+.minecraft-page::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent 0 8%,rgba(66,117,255,.05) 50%,transparent 92% 100%);}
+.minecraft-shell{width:min(1180px,100%);position:relative;z-index:1;text-align:center;}
+.minecraft-title h1{font-size:clamp(118px,16vw,235px);line-height:.8;font-weight:900;letter-spacing:-8px;background:linear-gradient(180deg,#fff 8%,#c9d7ff 36%,#6f98ff 65%,#168cff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 10px rgba(255,255,255,.25)) drop-shadow(0 0 28px rgba(46,105,255,.55));}
+.minecraft-word{margin-top:28px;font-size:clamp(24px,3.6vw,54px);font-weight:800;letter-spacing:clamp(8px,1.5vw,18px);color:#f7f9ff;text-shadow:0 0 16px rgba(255,255,255,.18);}
+.servers-word{margin-top:2px;font-size:clamp(36px,5vw,72px);font-weight:900;letter-spacing:clamp(10px,1.8vw,24px);background:linear-gradient(180deg,#6fb4ff,#1488ff 55%,#4f63ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 18px rgba(55,119,255,.48));}
+.minecraft-divider{width:min(560px,72%);margin:24px auto 18px;display:flex;align-items:center;justify-content:center;gap:14px;}
+.minecraft-divider span{height:2px;flex:1;background:linear-gradient(90deg,transparent,#3a8cff);box-shadow:0 0 12px rgba(58,140,255,.55);}
+.minecraft-divider span:last-child{background:linear-gradient(90deg,#3a8cff,transparent);}
+.minecraft-divider b{color:#4a91ff;font-size:18px;text-shadow:0 0 14px rgba(74,145,255,.9);}
+.minecraft-tagline{margin:0 auto 38px;font-size:clamp(14px,1.8vw,20px);letter-spacing:1px;color:#d8dded;}
+.minecraft-tagline strong{color:#2f8dff;}
+.minecraft-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;width:100%;margin:0 auto;}
+.minecraft-btn{min-height:205px;display:grid;grid-template-columns:86px 1fr 24px;align-items:center;gap:18px;padding:28px 24px;background:linear-gradient(135deg,rgba(7,15,43,.92),rgba(5,8,25,.88));border:1px solid rgba(75,137,255,.7);border-radius:20px;text-decoration:none;color:white;position:relative;overflow:hidden;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;backdrop-filter:blur(8px);}
+.minecraft-btn:hover,.minecraft-btn:focus-visible{transform:translateY(-7px) scale(1.015);}
+.mineos-card{border-color:#2f8cff;box-shadow:0 0 22px rgba(47,140,255,.26),inset 0 0 30px rgba(47,140,255,.05);}
+.pvp-card{border-color:#8b43ff;box-shadow:0 0 22px rgba(139,67,255,.22),inset 0 0 30px rgba(139,67,255,.05);}
+.events-card{border-color:#f4a223;box-shadow:0 0 22px rgba(244,162,35,.18),inset 0 0 30px rgba(244,162,35,.04);}
+.minecraft-icon{width:82px;height:82px;display:grid;place-items:center;border-radius:50%;background:rgba(8,17,48,.78);border:1px solid rgba(255,255,255,.08);font-size:48px;}
+.minecraft-info{text-align:left;}
+.minecraft-info h2{margin:0 0 10px;font-size:clamp(22px,2vw,32px);line-height:1.05;color:#f4f7ff;}
+.mineos-card .minecraft-info h2{color:#66a5ff;}.pvp-card .minecraft-info h2{color:#d8c0ff;}.events-card .minecraft-info h2{color:#ffe3b0;}
+.minecraft-info p{margin:0;font-size:16px;line-height:1.45;color:#d6d9e5;}
+.arrow{font-size:46px;line-height:1;font-weight:300;}.mineos-card .arrow{color:#2f8cff;}.pvp-card .arrow{color:#9b59ff;}.events-card .arrow{color:#f4a223;}
+.minecraft-back{margin-top:36px;background:linear-gradient(90deg,#5d2cff,#2f43ff);box-shadow:0 0 22px rgba(82,55,255,.25);}
 
-.minecraft-page::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    pointer-events:none;
-    background:
-        linear-gradient(90deg, transparent 0 8%, rgba(66,117,255,.05) 50%, transparent 92% 100%);
+@media(max-width:900px){
+    header{padding:14px 4%;}
+    nav{gap:16px;}
+    .cards{grid-template-columns:repeat(2,1fr);}
+    .home-bottom{grid-template-columns:1fr;}
 }
-
-.minecraft-shell{
-    width:min(1180px,100%);
-    position:relative;
-    z-index:1;
-    text-align:center;
-}
-
-.minecraft-title h1{
-    font-size:clamp(118px,16vw,235px);
-    line-height:.8;
-    font-weight:900;
-    letter-spacing:-8px;
-    background:linear-gradient(180deg,#ffffff 8%,#c9d7ff 36%,#6f98ff 65%,#168cff 100%);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    filter:
-        drop-shadow(0 0 10px rgba(255,255,255,.25))
-        drop-shadow(0 0 28px rgba(46,105,255,.55));
-}
-
-.minecraft-word{
-    margin-top:28px;
-    font-size:clamp(24px,3.6vw,54px);
-    font-weight:800;
-    letter-spacing:clamp(8px,1.5vw,18px);
-    color:#f7f9ff;
-    text-shadow:0 0 16px rgba(255,255,255,.18);
-}
-
-.servers-word{
-    margin-top:2px;
-    font-size:clamp(36px,5vw,72px);
-    font-weight:900;
-    letter-spacing:clamp(10px,1.8vw,24px);
-    background:linear-gradient(180deg,#6fb4ff,#1488ff 55%,#4f63ff);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    filter:drop-shadow(0 0 18px rgba(55,119,255,.48));
-}
-
-.minecraft-divider{
-    width:min(560px,72%);
-    margin:24px auto 18px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:14px;
-}
-
-.minecraft-divider span{
-    height:2px;
-    flex:1;
-    background:linear-gradient(90deg,transparent,#3a8cff);
-    box-shadow:0 0 12px rgba(58,140,255,.55);
-}
-
-.minecraft-divider span:last-child{
-    background:linear-gradient(90deg,#3a8cff,transparent);
-}
-
-.minecraft-divider b{
-    color:#4a91ff;
-    font-size:18px;
-    text-shadow:0 0 14px rgba(74,145,255,.9);
-}
-
-.minecraft-tagline{
-    margin:0 auto 38px;
-    font-size:clamp(14px,1.8vw,20px);
-    letter-spacing:1px;
-    color:#d8dded;
-}
-
-.minecraft-tagline strong{
-    color:#2f8dff;
-}
-
-.minecraft-cards{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:26px;
-    width:100%;
-    margin:0 auto;
-}
-
-.minecraft-btn{
-    min-height:205px;
-    display:grid;
-    grid-template-columns:86px 1fr 24px;
-    align-items:center;
-    gap:18px;
-    padding:28px 24px;
-    background:linear-gradient(135deg,rgba(7,15,43,.92),rgba(5,8,25,.88));
-    border:1px solid rgba(75,137,255,.7);
-    border-radius:20px;
-    text-decoration:none;
-    color:white;
-    position:relative;
-    overflow:hidden;
-    transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
-    backdrop-filter:blur(8px);
-}
-
-.minecraft-btn::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    opacity:0;
-    transition:.28s;
-    background:radial-gradient(circle at 20% 20%,rgba(255,255,255,.09),transparent 42%);
-}
-
-.minecraft-btn:hover,
-.minecraft-btn:focus-visible{
-    transform:translateY(-7px) scale(1.015);
-}
-
-.minecraft-btn:hover::before,
-.minecraft-btn:focus-visible::before{
-    opacity:1;
-}
-
-.mineos-card{
-    border-color:#2f8cff;
-    box-shadow:0 0 22px rgba(47,140,255,.26), inset 0 0 30px rgba(47,140,255,.05);
-}
-
-.pvp-card{
-    border-color:#8b43ff;
-    box-shadow:0 0 22px rgba(139,67,255,.22), inset 0 0 30px rgba(139,67,255,.05);
-}
-
-.events-card{
-    border-color:#f4a223;
-    box-shadow:0 0 22px rgba(244,162,35,.18), inset 0 0 30px rgba(244,162,35,.04);
-}
-
-.mineos-card:hover{
-    box-shadow:0 0 34px rgba(47,140,255,.48), inset 0 0 36px rgba(47,140,255,.09);
-}
-
-.pvp-card:hover{
-    box-shadow:0 0 34px rgba(139,67,255,.42), inset 0 0 36px rgba(139,67,255,.08);
-}
-
-.events-card:hover{
-    box-shadow:0 0 34px rgba(244,162,35,.34), inset 0 0 36px rgba(244,162,35,.07);
-}
-
-.minecraft-icon{
-    width:82px;
-    height:82px;
-    display:grid;
-    place-items:center;
-    border-radius:50%;
-    background:rgba(8,17,48,.78);
-    border:1px solid rgba(255,255,255,.08);
-    font-size:48px;
-    filter:drop-shadow(0 0 10px rgba(55,119,255,.18));
-}
-
-.minecraft-info{
-    text-align:left;
-}
-
-.minecraft-info h2{
-    margin:0 0 10px;
-    font-size:clamp(22px,2vw,32px);
-    line-height:1.05;
-    color:#f4f7ff;
-}
-
-.mineos-card .minecraft-info h2{
-    color:#66a5ff;
-}
-
-.pvp-card .minecraft-info h2{
-    color:#d8c0ff;
-}
-
-.events-card .minecraft-info h2{
-    color:#ffe3b0;
-}
-
-.minecraft-info p{
-    margin:0;
-    font-size:16px;
-    line-height:1.45;
-    color:#d6d9e5;
-}
-
-.arrow{
-    font-size:46px;
-    line-height:1;
-    font-weight:300;
-}
-
-.mineos-card .arrow{color:#2f8cff;}
-.pvp-card .arrow{color:#9b59ff;}
-.events-card .arrow{color:#f4a223;}
-
-.minecraft-back{
-    margin-top:36px;
-    background:linear-gradient(90deg,#5d2cff,#2f43ff);
-    box-shadow:0 0 22px rgba(82,55,255,.25);
-}
-
-/* MOBILE */
 
 @media(max-width:768px){
-    header{
-        flex-direction:column;
-        gap:15px;
-    }
-
-    nav{
-        flex-wrap:wrap;
-        justify-content:center;
-    }
-
-    .logo img{
-        height:45px;
-    }
-
-    .logo span{
-        font-size:15px;
-    }
-
-    .hero-logo h1{
-        font-size:120px;
-    }
-
-    .hero-logo h2{
-        font-size:22px;
-        letter-spacing:4px;
-    }
-
-    .slogan{
-        font-size:18px;
-        padding:0 20px;
-    }
-
-    .cards{
-        grid-template-columns:repeat(2,1fr);
-        margin-top:-50px;
-    }
-
-    .icon{
-        font-size:30px;
-    }
-
-    .minecraft-page{
-        min-height:100vh;
-        padding:34px 18px 60px;
-        background-position:center top;
-    }
-
-    .minecraft-title h1{
-        font-size:clamp(105px,34vw,160px);
-        letter-spacing:-5px;
-    }
-
-    .minecraft-word{
-        margin-top:24px;
-        font-size:22px;
-        letter-spacing:7px;
-    }
-
-    .servers-word{
-        font-size:34px;
-        letter-spacing:9px;
-    }
-
-    .minecraft-divider{
-        width:86%;
-        margin-top:20px;
-    }
-
-    .minecraft-tagline{
-        margin-bottom:28px;
-        font-size:13px;
-        padding:0 8px;
-    }
-
-    .minecraft-cards{
-        grid-template-columns:1fr;
-        gap:18px;
-        max-width:520px;
-    }
-
-    .minecraft-btn{
-        min-height:142px;
-        grid-template-columns:66px 1fr 18px;
-        gap:14px;
-        padding:20px 18px;
-        border-radius:17px;
-    }
-
-    .minecraft-icon{
-        width:64px;
-        height:64px;
-        font-size:38px;
-    }
-
-    .minecraft-info h2{
-        font-size:22px;
-        margin-bottom:6px;
-    }
-
-    .minecraft-info p{
-        font-size:14px;
-    }
-
-    .arrow{
-        font-size:36px;
-    }
+    header{flex-direction:column;gap:13px;}
+    nav{flex-wrap:wrap;justify-content:center;}
+    .logo img{height:43px;}
+    .logo span{font-size:15px;}
+    .home-hero{min-height:390px;padding-top:28px;padding-bottom:90px;}
+    .home-title h1{font-size:112px;letter-spacing:-4px;}
+    .home-title h2{font-size:25px;letter-spacing:5px;}
+    .home-slogan{font-size:19px;}
+    .home-cards{margin-top:-45px;}
+    .home-card{min-height:255px;}
+    .home-bottom{padding-left:4%;padding-right:4%;}
+    .minecraft-page{min-height:100vh;padding:34px 18px 60px;background-position:center top;}
+    .minecraft-title h1{font-size:clamp(105px,34vw,160px);letter-spacing:-5px;}
+    .minecraft-word{margin-top:24px;font-size:22px;letter-spacing:7px;}
+    .servers-word{font-size:34px;letter-spacing:9px;}
+    .minecraft-divider{width:86%;margin-top:20px;}
+    .minecraft-tagline{margin-bottom:28px;font-size:13px;padding:0 8px;}
+    .minecraft-cards{grid-template-columns:1fr;gap:18px;max-width:520px;}
+    .minecraft-btn{min-height:142px;grid-template-columns:66px 1fr 18px;gap:14px;padding:20px 18px;border-radius:17px;}
+    .minecraft-icon{width:64px;height:64px;font-size:38px;}
+    .minecraft-info h2{font-size:22px;margin-bottom:6px;}
+    .minecraft-info p{font-size:14px;}
+    .arrow{font-size:36px;}
 }
 
-@media(max-width:480px){
-    .cards{
-        grid-template-columns:1fr;
-    }
-
-    .minecraft-title h1{
-        font-size:108px;
-    }
-
-    .minecraft-word{
-        font-size:18px;
-        letter-spacing:5px;
-    }
-
-    .servers-word{
-        font-size:28px;
-        letter-spacing:7px;
-    }
-
-    .minecraft-tagline{
-        font-size:12px;
-    }
-
-    .minecraft-btn{
-        grid-template-columns:58px 1fr 16px;
-        padding:18px 15px;
-    }
-
-    .minecraft-icon{
-        width:56px;
-        height:56px;
-        font-size:32px;
-    }
-
-    .minecraft-info h2{
-        font-size:20px;
-    }
+@media(max-width:520px){
+    .cards{grid-template-columns:1fr;padding-left:5%;padding-right:5%;}
+    .home-cards{margin-top:-35px;}
+    .home-card{min-height:235px;}
+    .champions-grid{grid-template-columns:1fr;}
+    .social-box{grid-template-columns:1fr;}
+    .panel-action{width:100%;}
+    .home-title h1{font-size:98px;}
+    .home-title h2{font-size:21px;letter-spacing:4px;}
+    .minecraft-title h1{font-size:108px;}
+    .minecraft-word{font-size:18px;letter-spacing:5px;}
+    .servers-word{font-size:28px;letter-spacing:7px;}
+    .minecraft-tagline{font-size:12px;}
+    .minecraft-btn{grid-template-columns:58px 1fr 16px;padding:18px 15px;}
+    .minecraft-icon{width:56px;height:56px;font-size:32px;}
+    .minecraft-info h2{font-size:20px;}
 }
