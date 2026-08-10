@@ -1,0 +1,4 @@
+const REGISTRATION_API_URL="https://script.google.com/macros/s/AKfycbyvbLz9oi3BFn3jMx-25wGHntHmJEqzMHaOrGqr2LNWlUX3kFzlQWeijRwF3EAgs2fD/exec";
+async function actualizarContadorRegistro(){try{const res=await fetch(REGISTRATION_API_URL);const data=await res.json();const el=document.getElementById("contador");if(el)el.textContent=data.inscritos;}catch(e){console.log("Error contador:",e);}}
+function enviarExito(){const msg=document.getElementById("successMessage");if(msg){msg.style.display="block";setTimeout(()=>msg.style.display="none",3000);}setTimeout(actualizarContadorRegistro,1200);}
+actualizarContadorRegistro();setInterval(actualizarContadorRegistro,5000);
