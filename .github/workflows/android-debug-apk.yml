@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - 'android/**'
+      - 'logo.png'
       - '.github/workflows/android-debug-apk.yml'
 
 jobs:
@@ -30,6 +31,11 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.13'
+
+      - name: Prepare app icon
+        run: |
+          mkdir -p android/app/src/main/res/drawable
+          cp logo.png android/app/src/main/res/drawable/sc_latam_icon.png
 
       - name: Build debug APK
         run: gradle -p android assembleDebug
