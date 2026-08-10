@@ -1,4 +1,4 @@
-const REGISTRATION_API_URL="https://script.google.com/macros/s/AKfycbyvbLz9oi3BFn3jMx-25wGHntHmJEqzMHaOrGqr2LNWlUX3kFzlQWeijRwF3EAgs2fD/exec";
+const REGISTRATION_API_URL="https://script.google.com/macros/s/AKfycbyOA38kueRnH1V1VhOn1IGBliGxKUbwAnhXEBoPooAT6tni8k5o9VL-0LWE7uJX-Ond/exec";
 
 let contadorActualizando=false;
 
