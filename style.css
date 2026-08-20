@@ -292,8 +292,6 @@ nav a:hover::after{transform:scaleX(1);}
     font-size:39px !important;
     font-weight:900 !important;
     line-height:1;
-    text-shadow:-3px 0 #25f4ee,3px 0 #fe2c55,0 0 12px rgba(37,244,238,.38),0 0 12px rgba(254,44,85,.32);
-    transform:rotate(-7deg);
 }
 .youtube-logo{
     display:inline-grid !important;
