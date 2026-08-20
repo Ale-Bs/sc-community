@@ -71,6 +71,38 @@
     font-size:0 !important;
 }
 
+/* REAL SOCIAL LOGOS — clean, normal brand marks */
+.tiktok-logo,
+.youtube-logo{
+    display:inline-block !important;
+    flex:0 0 auto;
+    padding:0 !important;
+    margin:0 !important;
+    background-color:transparent !important;
+    background-repeat:no-repeat !important;
+    background-position:center !important;
+    background-size:contain !important;
+    color:transparent !important;
+    font-size:0 !important;
+    line-height:0 !important;
+    text-shadow:none !important;
+    transform:none !important;
+    box-shadow:none !important;
+    border-radius:0 !important;
+}
+
+.tiktok-logo{
+    width:34px !important;
+    height:38px !important;
+    background-image:url("tiktok-logo.svg") !important;
+}
+
+.youtube-logo{
+    width:42px !important;
+    height:30px !important;
+    background-image:url("youtube-logo.svg") !important;
+}
+
 @media(max-width:520px){
     .champions-title,
     .social-title{
@@ -95,5 +127,15 @@
     .social-title-line{
         min-width:10px;
         max-width:28px;
+    }
+
+    .tiktok-logo{
+        width:22px !important;
+        height:26px !important;
+    }
+
+    .youtube-logo{
+        width:28px !important;
+        height:20px !important;
     }
 }
