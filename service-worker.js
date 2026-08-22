@@ -1,4 +1,4 @@
-const CACHE_NAME = "sc-latam-community-v2";
+const CACHE_NAME = "sc-latam-community-v3";
 
 const FILES_TO_CACHE = [
   "./",
