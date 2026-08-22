@@ -1,4 +1,4 @@
-const CACHE_NAME = "sc-latam-community-v4";
+const CACHE_NAME = "sc-latam-community-v5";
 
 const FILES_TO_CACHE = [
   "./",
@@ -30,16 +30,5 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
-
-  event.respondWith(
-    fetch(event.request)
-      .then((response) => {
-        if (response && response.status === 200 && response.type === "basic") {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
-        }
-        return response;
-      })
-      .catch(() => caches.match(event.request))
-  );
+  event.respondWith(fetch(event.request));
 });
