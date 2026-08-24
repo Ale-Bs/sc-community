@@ -38,7 +38,23 @@ function enviarExito(){
   setTimeout(actualizarContadorRegistro,4000);
 }
 
+function configurarNavegacionPaginas(){
+  const nav=document.querySelector("header nav");
+  if(!nav)return;
+  const enlaces=nav.querySelectorAll("a");
+  if(enlaces[0])enlaces[0].href="#inicio";
+  if(enlaces[1])enlaces[1].href="torneos.html";
+  if(enlaces[3])enlaces[3].href="historial.html";
+
+  const tarjetaTorneos=document.querySelector(".tournament-card .card-action");
+  if(tarjetaTorneos)tarjetaTorneos.href="torneos.html";
+
+  const botonHistorial=document.querySelector(".champions-panel .panel-action");
+  if(botonHistorial)botonHistorial.href="historial.html";
+}
+
 document.addEventListener("DOMContentLoaded",()=>{
   actualizarContadorRegistro();
   setInterval(actualizarContadorRegistro,10000);
+  configurarNavegacionPaginas();
 });
