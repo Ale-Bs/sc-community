@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://scinfinitystudios.github.io/sc-latam.community/sitemap.xml
+Sitemap: https://sc-latam-community.vercel.app/sitemap.xml
