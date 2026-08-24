@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050816">
+<title>Torneos | SC LATAM Community</title>
+<meta name="description" content="Descubre los torneos de SC LATAM Community: eventos activos, próximos e inscripciones abiertas.">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="stylesheet" href="style.css">
+<style>
+.tournaments-page{min-height:calc(100vh - 82px);padding:70px 5% 90px;background:radial-gradient(circle at 50% 0,rgba(99,52,255,.22),transparent 34%),linear-gradient(180deg,#070a1b,#030511);}
+.tournaments-shell{max-width:1180px;margin:auto;}
+.tournaments-hero{text-align:center;margin-bottom:42px;}
+.tournaments-kicker{color:#8d59ff;font-weight:900;letter-spacing:3px;font-size:13px;margin-bottom:12px;}
+.tournaments-hero h1{font-size:clamp(48px,8vw,88px);line-height:1;font-weight:900;background:linear-gradient(90deg,#fff,#a77aff,#4b78ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.tournaments-hero p{color:#cdd1df;max-width:650px;margin:18px auto 0;line-height:1.6;font-size:16px;}
+.tournament-section{margin-top:38px;}
+.section-heading{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.section-heading h2{font-size:22px;}
+.section-heading .dot{width:10px;height:10px;border-radius:50%;background:#5bff9b;box-shadow:0 0 14px #5bff9b;}
+.tournament-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.tournament-item{background:linear-gradient(180deg,rgba(11,15,38,.98),rgba(5,8,22,.98));border:1px solid rgba(111,79,255,.3);border-radius:14px;padding:24px;min-height:250px;display:flex;flex-direction:column;transition:.3s;}
+.tournament-item:hover{transform:translateY(-5px);border-color:rgba(119,92,255,.7);box-shadow:0 0 28px rgba(92,62,255,.16);}
+.tournament-badge{display:inline-block;align-self:flex-start;padding:6px 10px;border-radius:5px;background:rgba(65,219,119,.12);color:#63f39b;font-size:11px;font-weight:900;letter-spacing:1px;}
+.tournament-item h3{font-size:21px;margin:18px 0 10px;}
+.tournament-item p{color:#bfc4d5;font-size:14px;line-height:1.5;}
+.tournament-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:18px 0;color:#dce0ed;font-size:12px;}
+.tournament-meta span{background:rgba(255,255,255,.04);padding:9px;border-radius:6px;}
+.tournament-button{margin-top:auto;display:block;text-align:center;text-decoration:none;color:#fff;background:linear-gradient(90deg,#5c20c8,#315cff);padding:11px;border-radius:7px;font-weight:900;font-size:13px;}
+.empty-state{border:1px dashed rgba(255,255,255,.13);border-radius:12px;padding:28px;text-align:center;color:#aeb4c8;background:rgba(255,255,255,.02);}
+.page-back{display:inline-block;margin-top:44px;text-decoration:none;color:#fff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:11px 18px;border-radius:7px;font-weight:800;font-size:13px;}
+@media(max-width:800px){.tournament-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.tournaments-page{padding:48px 5% 70px}.tournament-grid{grid-template-columns:1fr}.tournaments-hero h1{font-size:52px}.section-heading h2{font-size:19px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><img src="logo.png" alt="SC LATAM Community"><span>SC LATAM COMMUNITY</span></div>
+  <nav><a href="index.html#inicio">Inicio</a><a href="torneos.html">Torneos</a><a href="index.html" onclick="return true">Servidores</a><a href="historial.html">Historial</a></nav>
+  <a class="btn-header" href="index.html#registro">ÚNETE AHORA</a>
+</header>
+<main class="tournaments-page"><div class="tournaments-shell">
+  <div class="tournaments-hero"><div class="tournaments-kicker">COMPETENCIA • COMUNIDAD • NIVEL</div><h1>TORNEOS</h1><p>Encuentra tu próximo desafío. Aquí aparecerán los torneos activos, próximos eventos e inscripciones de SC LATAM Community.</p></div>
+  <section class="tournament-section"><div class="section-heading"><span class="dot"></span><h2>TORNEOS ACTIVOS</h2></div><div class="tournament-grid"><article class="tournament-item"><span class="tournament-badge">INSCRIPCIONES ABIERTAS</span><h3>SC LATAM CUP #01</h3><p>Primer torneo competitivo oficial de la comunidad.</p><div class="tournament-meta"><span>🎮 Mobile Legends</span><span>👥 Cupos: por definir</span><span>📅 Próximamente</span><span>🏆 Premio: por definir</span></div><a class="tournament-button" href="index.html#registro">REGISTRARME</a></article></div></section>
+  <section class="tournament-section"><div class="section-heading"><span class="dot" style="background:#4a7dff;box-shadow:0 0 14px #4a7dff"></span><h2>PRÓXIMOS TORNEOS</h2></div><div class="empty-state">🚀 Próximamente anunciaremos nuevos torneos y fechas.</div></section>
+  <a class="page-back" href="index.html#inicio">⬅ VOLVER AL INICIO</a>
+</div></main>
+<footer><p>Todos los derechos reservados.</p><p>© Copyright 2026. SC - Infinity Studios, Inc.</p></footer>
+</body></html>
