@@ -31,12 +31,12 @@ public class MainActivity extends Activity {
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                return handleExternalUrl(request.getUrl().toString());
+                return openExternalIfNeeded(request.getUrl());
             }
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return handleExternalUrl(url);
+                return openExternalIfNeeded(Uri.parse(url));
             }
         });
 
@@ -44,32 +44,42 @@ public class MainActivity extends Activity {
         webView.loadUrl("https://scinfinitystudios.github.io/sc-latam.community/");
     }
 
-    private boolean handleExternalUrl(String url) {
-        Uri uri = Uri.parse(url);
+    private boolean openExternalIfNeeded(Uri uri) {
         String scheme = uri.getScheme();
         String host = uri.getHost();
 
-        // TikTok puede redirigir a un esquema propio (snssdk1233://).
-        // WebView no puede cargarlo; se entrega al sistema Android.
-        if ("snssdk1233".equalsIgnoreCase(scheme)
+        boolean isTikTok = "snssdk1233".equalsIgnoreCase(scheme)
                 || (host != null && ("tiktok.com".equalsIgnoreCase(host)
-                || host.toLowerCase().endsWith(".tiktok.com")))) {
-            try {
-                startActivity(new Intent(Intent.ACTION_VIEW, uri));
-            } catch (Exception ignored) {
-                // Si no hay una app compatible, intentar abrir el enlace en el navegador.
-                try {
-                    if ("http".equalsIgnoreCase(scheme) || "https".equalsIgnoreCase(scheme)) {
-                        startActivity(new Intent(Intent.ACTION_VIEW, uri));
-                    }
-                } catch (Exception ignoredAgain) {
-                    // No interrumpir la navegación de la APK.
-                }
-            }
-            return true;
+                || host.toLowerCase().endsWith(".tiktok.com")));
+
+        if (!isTikTok) {
+            return false;
         }
 
-        return false;
+        // Primero entrega el enlace al sistema Android. Si TikTok está instalado,
+        // Android abrirá automáticamente la aplicación asociada.
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            return true;
+        } catch (Exception ignored) {
+            // Si el esquema propio no tiene una aplicación asociada, convertir
+            // el enlace de TikTok a HTTPS para abrirlo en el navegador.
+            try {
+                if ("snssdk1233".equalsIgnoreCase(scheme)) {
+                    Uri fallback = Uri.parse("https://www.tiktok.com/@sc.latamcommunity");
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, fallback);
+                    browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(browserIntent);
+                    return true;
+                }
+            } catch (Exception ignoredAgain) {
+                // No interrumpir la aplicación si Android no encuentra un handler.
+            }
+        }
+
+        return true;
     }
 
     @Override
