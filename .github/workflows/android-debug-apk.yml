@@ -45,3 +45,5 @@ jobs:
         with:
           name: sc-latam-community-debug-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
+
+      # Build triggered to package the latest TikTok, YouTube and WhatsApp changes.
