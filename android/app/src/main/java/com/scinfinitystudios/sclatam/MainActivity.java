@@ -31,20 +31,20 @@ public class MainActivity extends Activity {
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                return openTikTok(request.getUrl());
+                return openExternal(request.getUrl());
             }
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return openTikTok(Uri.parse(url));
+                return openExternal(Uri.parse(url));
             }
 
             @Override
             public void onPageStarted(WebView view, String url, android.graphics.Bitmap favicon) {
                 Uri uri = Uri.parse(url);
-                if (isTikTok(uri)) {
+                if (isTikTok(uri) || isYouTube(uri)) {
                     view.stopLoading();
-                    openTikTok(uri);
+                    openExternal(uri);
                     return;
                 }
                 super.onPageStarted(view, url, favicon);
@@ -63,28 +63,58 @@ public class MainActivity extends Activity {
                 || host.toLowerCase().endsWith(".tiktok.com")));
     }
 
-    private boolean openTikTok(Uri uri) {
-        if (!isTikTok(uri)) {
-            return false;
-        }
+    private boolean isYouTube(Uri uri) {
+        String scheme = uri.getScheme();
+        String host = uri.getHost();
+        return "vnd.youtube".equalsIgnoreCase(scheme)
+                || "youtube".equalsIgnoreCase(scheme)
+                || (host != null && ("youtube.com".equalsIgnoreCase(host)
+                || host.toLowerCase().endsWith(".youtube.com")
+                || "youtu.be".equalsIgnoreCase(host)));
+    }
 
-        // Si TikTok redirige el WebView a snssdk1233://, nunca dejamos que
-        // WebView intente cargar ese esquema: lo entregamos directamente a Android.
+    private boolean openExternal(Uri uri) {
+        if (isTikTok(uri)) {
+            return openTikTok(uri);
+        }
+        if (isYouTube(uri)) {
+            return openYouTube(uri);
+        }
+        return false;
+    }
+
+    private boolean openTikTok(Uri uri) {
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             return true;
         } catch (Exception ignored) {
-            // Para esquemas internos sin handler, abrir el perfil HTTPS en el navegador.
             try {
-                Uri fallback = Uri.parse("https://www.tiktok.com/@sc.latamcommunity");
+                Intent fallback = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.tiktok.com/@sc.latamcommunity"));
+                fallback.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(fallback);
+            } catch (Exception ignoredAgain) { }
+            return true;
+        }
+    }
+
+    private boolean openYouTube(Uri uri) {
+        try {
+            // Intent directo: si YouTube está instalada, Android la abre.
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            intent.setPackage("com.google.android.youtube");
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            return true;
+        } catch (Exception ignored) {
+            // Si no está instalada, abrir el canal en el navegador.
+            try {
+                Uri fallback = Uri.parse("https://www.youtube.com/@SC.LATAMCommunity");
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, fallback);
                 browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(browserIntent);
-            } catch (Exception ignoredAgain) {
-                // No interrumpir la APK.
-            }
+            } catch (Exception ignoredAgain) { }
             return true;
         }
     }
