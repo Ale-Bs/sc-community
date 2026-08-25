@@ -15,353 +15,120 @@
        TORNEOS - ESTRUCTURA Y DISEÑO
        ============================== */
 
-    /* Página */
     .tournaments-page {
       min-height: calc(100vh - 82px);
       padding: 70px 5% 90px;
-      background: radial-gradient(circle at 50% 0, rgba(99,52,255,.22), transparent 34%), linear-gradient(180deg,#070a1b,#030511);
+      background:
+        linear-gradient(rgba(3,0,8,.48),rgba(3,0,8,.7)),
+        url("assets/fondo-torneos-sc.svg") center center / cover fixed no-repeat;
     }
 
-    .tournaments-shell {
-      max-width: 1180px;
-      margin: auto;
-    }
+    .tournaments-shell { max-width: 1180px; margin: auto; }
 
-    /* ==============================
-       HERO
-       ============================== */
-    .tournaments-hero {
-      text-align: center;
-      margin-bottom: 42px;
-    }
+    .tournaments-hero { text-align: center; margin-bottom: 42px; }
+    .tournaments-kicker { color: #b400ff; font-weight: 900; letter-spacing: 3px; font-size: 13px; margin-bottom: 12px; }
+    .tournaments-hero h1 { font-size: clamp(48px, 8vw, 88px); line-height: 1; font-weight: 900; background: linear-gradient(90deg,#fff,#d68cff,#b400ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .tournaments-hero p { color: #e0d5e8; max-width: 650px; margin: 18px auto 0; line-height: 1.6; font-size: 16px; }
 
-    .tournaments-kicker {
-      color: #8d59ff;
-      font-weight: 900;
-      letter-spacing: 3px;
-      font-size: 13px;
-      margin-bottom: 12px;
-    }
+    .tournament-section { margin-top: 38px; }
+    .section-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .section-heading h2 { font-size: 22px; }
+    .section-heading .dot { width: 10px; height: 10px; border-radius: 50%; background: #b400ff; box-shadow: 0 0 14px #b400ff; }
 
-    .tournaments-hero h1 {
-      font-size: clamp(48px, 8vw, 88px);
-      line-height: 1;
-      font-weight: 900;
-      background: linear-gradient(90deg,#fff,#a77aff,#4b78ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+    .tournament-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .tournament-item { background: linear-gradient(180deg,rgba(11,5,25,.94),rgba(5,1,12,.97)); border: 1px solid rgba(180,0,255,.3); border-radius: 14px; padding: 24px; min-height: 250px; display: flex; flex-direction: column; transition: .3s; }
+    .tournament-item:hover { transform: translateY(-5px); border-color: rgba(192,0,255,.7); box-shadow: 0 0 28px rgba(180,0,255,.16); }
+    .tournament-badge { display: inline-block; align-self: flex-start; padding: 6px 10px; border-radius: 5px; background: rgba(65,219,119,.12); color: #63f39b; font-size: 11px; font-weight: 900; letter-spacing: 1px; }
+    .tournament-item h3 { font-size: 21px; margin: 18px 0 10px; }
+    .tournament-item p { color: #cfc3d8; font-size: 14px; line-height: 1.5; }
+    .tournament-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 18px 0; color: #e5dcec; font-size: 12px; }
+    .tournament-meta span { background: rgba(255,255,255,.04); padding: 9px; border-radius: 6px; }
+    .tournament-button { margin-top: auto; display: block; text-align: center; text-decoration: none; color: #fff; background: linear-gradient(90deg,#7b00c9,#c000ff); padding: 11px; border-radius: 7px; font-weight: 900; font-size: 13px; }
+    .empty-state { border: 1px dashed rgba(255,255,255,.13); border-radius: 12px; padding: 28px; text-align: center; color: #c8bcd0; background: rgba(255,255,255,.02); }
+    .page-back { display: inline-block; margin-top: 44px; text-decoration: none; color: #fff; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); padding: 11px 18px; border-radius: 7px; font-weight: 800; font-size: 13px; }
 
-    .tournaments-hero p {
-      color: #cdd1df;
-      max-width: 650px;
-      margin: 18px auto 0;
-      line-height: 1.6;
-      font-size: 16px;
-    }
-
-    /* ==============================
-       SECCIONES
-       ============================== */
-    .tournament-section {
-      margin-top: 38px;
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .section-heading h2 {
-      font-size: 22px;
-    }
-
-    .section-heading .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #5bff9b;
-      box-shadow: 0 0 14px #5bff9b;
-    }
-
-    /* ==============================
-       TARJETAS DE TORNEOS
-       ============================== */
-    .tournament-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 18px;
-    }
-
-    .tournament-item {
-      background: linear-gradient(180deg,rgba(11,15,38,.98),rgba(5,8,22,.98));
-      border: 1px solid rgba(111,79,255,.3);
-      border-radius: 14px;
-      padding: 24px;
-      min-height: 250px;
-      display: flex;
-      flex-direction: column;
-      transition: .3s;
-    }
-
-    .tournament-item:hover {
-      transform: translateY(-5px);
-      border-color: rgba(119,92,255,.7);
-      box-shadow: 0 0 28px rgba(92,62,255,.16);
-    }
-
-    .tournament-badge {
-      display: inline-block;
-      align-self: flex-start;
-      padding: 6px 10px;
-      border-radius: 5px;
-      background: rgba(65,219,119,.12);
-      color: #63f39b;
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
-
-    .tournament-item h3 {
-      font-size: 21px;
-      margin: 18px 0 10px;
-    }
-
-    .tournament-item p {
-      color: #bfc4d5;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .tournament-meta {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin: 18px 0;
-      color: #dce0ed;
-      font-size: 12px;
-    }
-
-    .tournament-meta span {
-      background: rgba(255,255,255,.04);
-      padding: 9px;
-      border-radius: 6px;
-    }
-
-    .tournament-button {
-      margin-top: auto;
-      display: block;
-      text-align: center;
-      text-decoration: none;
-      color: #fff;
-      background: linear-gradient(90deg,#5c20c8,#315cff);
-      padding: 11px;
-      border-radius: 7px;
-      font-weight: 900;
-      font-size: 13px;
-    }
-
-    .empty-state {
-      border: 1px dashed rgba(255,255,255,.13);
-      border-radius: 12px;
-      padding: 28px;
-      text-align: center;
-      color: #aeb4c8;
-      background: rgba(255,255,255,.02);
-    }
-
-    /* ==============================
-       BOTÓN VOLVER
-       ============================== */
-    .page-back {
-      display: inline-block;
-      margin-top: 44px;
-      text-decoration: none;
-      color: #fff;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.1);
-      padding: 11px 18px;
-      border-radius: 7px;
-      font-weight: 800;
-      font-size: 13px;
-    }
-
-    /* ==============================
-       RESPONSIVE
-       ============================== */
     @media(max-width:800px) {
-      .tournament-grid {
-        grid-template-columns: repeat(2,minmax(0,1fr));
-        gap: 12px;
-      }
-
-      .tournaments-page {
-        padding-left: 4%;
-        padding-right: 4%;
-      }
-
-      .tournament-item {
-        padding: 18px 14px;
-      }
-
-      .tournament-meta {
-        grid-template-columns: 1fr;
-      }
-
-      .tournament-item h3 {
-        font-size: 17px;
-      }
-
-      .tournament-item p {
-        font-size: 12px;
-      }
-
-      .tournament-badge {
-        font-size: 9px;
-        padding: 5px 7px;
-      }
+      .tournament-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+      .tournaments-page { padding-left: 4%; padding-right: 4%; }
+      .tournament-item { padding: 18px 14px; }
+      .tournament-meta { grid-template-columns: 1fr; }
+      .tournament-item h3 { font-size: 17px; }
+      .tournament-item p { font-size: 12px; }
+      .tournament-badge { font-size: 9px; padding: 5px 7px; }
     }
 
     @media(max-width:560px) {
-      .tournaments-page {
-        padding: 48px 4% 70px;
-      }
-
-      .tournament-grid {
-        grid-template-columns: repeat(2,minmax(0,1fr));
-        gap: 8px;
-      }
-
-      .tournaments-hero h1 {
-        font-size: 52px;
-      }
-
-      .tournaments-hero p {
-        font-size: 14px;
-      }
-
-      .section-heading h2 {
-        font-size: 19px;
-      }
-
-      .tournament-item {
-        min-height: 220px;
-        padding: 14px 9px;
-        border-radius: 9px;
-      }
-
-      .tournament-item h3 {
-        font-size: 14px;
-        margin: 12px 0 7px;
-      }
-
-      .tournament-item p {
-        font-size: 10px;
-        line-height: 1.35;
-      }
-
-      .tournament-meta {
-        gap: 5px;
-        margin: 12px 0;
-        font-size: 9px;
-      }
-
-      .tournament-meta span {
-        padding: 6px;
-      }
-
-      .tournament-button {
-        padding: 8px 4px;
-        font-size: 9px;
-      }
-
-      .page-back {
-        width: 100%;
-        text-align: center;
-      }
+      .tournaments-page { padding: 48px 4% 70px; }
+      .tournament-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+      .tournaments-hero h1 { font-size: 52px; }
+      .tournaments-hero p { font-size: 14px; }
+      .section-heading h2 { font-size: 19px; }
+      .tournament-item { min-height: 220px; padding: 14px 9px; border-radius: 9px; }
+      .tournament-item h3 { font-size: 14px; margin: 12px 0 7px; }
+      .tournament-item p { font-size: 10px; line-height: 1.35; }
+      .tournament-meta { gap: 5px; margin: 12px 0; font-size: 9px; }
+      .tournament-meta span { padding: 6px; }
+      .tournament-button { padding: 8px 4px; font-size: 9px; }
+      .page-back { width: 100%; text-align: center; }
     }
   </style>
 </head>
 
 <body>
-  <!-- ==============================
-       HEADER
-       ============================== -->
   <header>
     <div class="logo">
       <img src="logo.png" alt="SC LATAM Community">
       <span>SC LATAM COMMUNITY</span>
     </div>
-
     <nav>
       <a href="index.html#inicio">Inicio</a>
       <a href="torneos.html">Torneos</a>
       <a href="servidores.html">Servidores</a>
       <a href="historial.html">Historial</a>
     </nav>
-
     <a class="btn-header" href="index.html#registro">ÚNETE AHORA</a>
   </header>
 
-  <!-- ==============================
-       CONTENIDO PRINCIPAL
-       ============================== -->
   <main class="tournaments-page">
     <div class="tournaments-shell">
-
-      <!-- HERO -->
       <div class="tournaments-hero">
         <div class="tournaments-kicker">COMPETENCIA • COMUNIDAD • NIVEL</div>
         <h1>TORNEOS</h1>
         <p>Encuentra tu próximo desafío. Aquí aparecerán los torneos activos, próximos eventos e inscripciones de SC LATAM Community.</p>
       </div>
 
-      <!-- TORNEOS ACTIVOS -->
       <section class="tournament-section">
         <div class="section-heading">
           <span class="dot"></span>
           <h2>TORNEOS ACTIVOS</h2>
         </div>
-
         <div class="tournament-grid">
           <article class="tournament-item">
             <span class="tournament-badge">INSCRIPCIONES ABIERTAS</span>
             <h3>SC LATAM CUP #01</h3>
             <p>Torneo competitivo oficial de la comunidad.</p>
-
             <div class="tournament-meta">
               <span>Free Fire</span>
               <span>Cupos: por definir</span>
               <span>Premio: por definir</span>
             </div>
-
             <a class="tournament-button" href="index.html#registro">REGISTRARME</a>
           </article>
         </div>
       </section>
 
-      <!-- PRÓXIMOS TORNEOS -->
       <section class="tournament-section">
         <div class="section-heading">
-          <span class="dot" style="background:#4a7dff;box-shadow:0 0 14px #4a7dff"></span>
+          <span class="dot" style="background:#b400ff;box-shadow:0 0 14px #b400ff"></span>
           <h2>PRÓXIMOS TORNEOS</h2>
         </div>
-
-        <div class="empty-state">
-          🚀 Próximamente anunciaremos nuevos torneos y fechas en los canales oficiales.
-        </div>
+        <div class="empty-state">🚀 Próximamente anunciaremos nuevos torneos y fechas en los canales oficiales.</div>
       </section>
 
-      <!-- VOLVER -->
       <a class="page-back" href="index.html#inicio">⬅ VOLVER AL INICIO</a>
     </div>
   </main>
 
-  <!-- ==============================
-       FOOTER
-       ============================== -->
   <footer>
     <p>Todos los derechos reservados.</p>
     <p>© Copyright 2026. SC - Infinity Studios, Inc.</p>
