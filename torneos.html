@@ -15,6 +15,7 @@
        TORNEOS - ESTRUCTURA Y DISEÑO
        ============================== */
 
+    /* Página */
     .tournaments-page {
       min-height: calc(100vh - 82px);
       padding: 70px 5% 90px;
@@ -26,7 +27,9 @@
       margin: auto;
     }
 
-    /* Hero */
+    /* ==============================
+       HERO
+       ============================== */
     .tournaments-hero {
       text-align: center;
       margin-bottom: 42px;
@@ -57,7 +60,9 @@
       font-size: 16px;
     }
 
-    /* Secciones */
+    /* ==============================
+       SECCIONES
+       ============================== */
     .tournament-section {
       margin-top: 38px;
     }
@@ -81,7 +86,9 @@
       box-shadow: 0 0 14px #5bff9b;
     }
 
-    /* Tarjetas */
+    /* ==============================
+       TARJETAS DE TORNEOS
+       ============================== */
     .tournament-grid {
       display: grid;
       grid-template-columns: repeat(3,1fr);
@@ -165,7 +172,9 @@
       background: rgba(255,255,255,.02);
     }
 
-    /* Botón volver */
+    /* ==============================
+       BOTÓN VOLVER
+       ============================== */
     .page-back {
       display: inline-block;
       margin-top: 44px;
@@ -182,7 +191,6 @@
     /* ==============================
        RESPONSIVE
        ============================== */
-
     @media(max-width:800px) {
       .tournament-grid {
         grid-template-columns: repeat(2,minmax(0,1fr));
@@ -303,14 +311,14 @@
   <main class="tournaments-page">
     <div class="tournaments-shell">
 
-      <!-- Hero -->
+      <!-- HERO -->
       <div class="tournaments-hero">
         <div class="tournaments-kicker">COMPETENCIA • COMUNIDAD • NIVEL</div>
         <h1>TORNEOS</h1>
         <p>Encuentra tu próximo desafío. Aquí aparecerán los torneos activos, próximos eventos e inscripciones de SC LATAM Community.</p>
       </div>
 
-      <!-- Torneos activos -->
+      <!-- TORNEOS ACTIVOS -->
       <section class="tournament-section">
         <div class="section-heading">
           <span class="dot"></span>
@@ -335,7 +343,7 @@
         </div>
       </section>
 
-      <!-- Próximos torneos -->
+      <!-- PRÓXIMOS TORNEOS -->
       <section class="tournament-section">
         <div class="section-heading">
           <span class="dot" style="background:#4a7dff;box-shadow:0 0 14px #4a7dff"></span>
@@ -347,7 +355,7 @@
         </div>
       </section>
 
-      <!-- Volver -->
+      <!-- VOLVER -->
       <a class="page-back" href="index.html#inicio">⬅ VOLVER AL INICIO</a>
     </div>
   </main>
