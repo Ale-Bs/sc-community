@@ -42,7 +42,7 @@ public class MainActivity extends Activity {
             @Override
             public void onPageStarted(WebView view, String url, android.graphics.Bitmap favicon) {
                 Uri uri = Uri.parse(url);
-                if (isTikTok(uri) || isYouTube(uri)) {
+                if (isTikTok(uri) || isYouTube(uri) || isWhatsApp(uri)) {
                     view.stopLoading();
                     openExternal(uri);
                     return;
@@ -73,12 +73,23 @@ public class MainActivity extends Activity {
                 || "youtu.be".equalsIgnoreCase(host)));
     }
 
+    private boolean isWhatsApp(Uri uri) {
+        String scheme = uri.getScheme();
+        String host = uri.getHost();
+        return "whatsapp".equalsIgnoreCase(scheme)
+                || (host != null && ("whatsapp.com".equalsIgnoreCase(host)
+                || host.toLowerCase().endsWith(".whatsapp.com")));
+    }
+
     private boolean openExternal(Uri uri) {
         if (isTikTok(uri)) {
             return openTikTok(uri);
         }
         if (isYouTube(uri)) {
             return openYouTube(uri);
+        }
+        if (isWhatsApp(uri)) {
+            return openWhatsApp(uri);
         }
         return false;
     }
@@ -101,16 +112,32 @@ public class MainActivity extends Activity {
 
     private boolean openYouTube(Uri uri) {
         try {
-            // Intent directo: si YouTube está instalada, Android la abre.
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             intent.setPackage("com.google.android.youtube");
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             return true;
         } catch (Exception ignored) {
-            // Si no está instalada, abrir el canal en el navegador.
             try {
                 Uri fallback = Uri.parse("https://www.youtube.com/@SC.LATAMCommunity");
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, fallback);
+                browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(browserIntent);
+            } catch (Exception ignoredAgain) { }
+            return true;
+        }
+    }
+
+    private boolean openWhatsApp(Uri uri) {
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            intent.setPackage("com.whatsapp");
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            return true;
+        } catch (Exception ignored) {
+            try {
+                Uri fallback = Uri.parse("https://whatsapp.com/channel/0029VbDvqFuJUM2XckjfVR2r");
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, fallback);
                 browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(browserIntent);
