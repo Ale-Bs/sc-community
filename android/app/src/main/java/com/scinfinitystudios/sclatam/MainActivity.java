@@ -31,12 +31,23 @@ public class MainActivity extends Activity {
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                return openExternalIfNeeded(request.getUrl());
+                return openTikTok(request.getUrl());
             }
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return openExternalIfNeeded(Uri.parse(url));
+                return openTikTok(Uri.parse(url));
+            }
+
+            @Override
+            public void onPageStarted(WebView view, String url, android.graphics.Bitmap favicon) {
+                Uri uri = Uri.parse(url);
+                if (isTikTok(uri)) {
+                    view.stopLoading();
+                    openTikTok(uri);
+                    return;
+                }
+                super.onPageStarted(view, url, favicon);
             }
         });
 
@@ -44,42 +55,38 @@ public class MainActivity extends Activity {
         webView.loadUrl("https://scinfinitystudios.github.io/sc-latam.community/");
     }
 
-    private boolean openExternalIfNeeded(Uri uri) {
+    private boolean isTikTok(Uri uri) {
         String scheme = uri.getScheme();
         String host = uri.getHost();
-
-        boolean isTikTok = "snssdk1233".equalsIgnoreCase(scheme)
+        return "snssdk1233".equalsIgnoreCase(scheme)
                 || (host != null && ("tiktok.com".equalsIgnoreCase(host)
                 || host.toLowerCase().endsWith(".tiktok.com")));
+    }
 
-        if (!isTikTok) {
+    private boolean openTikTok(Uri uri) {
+        if (!isTikTok(uri)) {
             return false;
         }
 
-        // Primero entrega el enlace al sistema Android. Si TikTok está instalado,
-        // Android abrirá automáticamente la aplicación asociada.
+        // Si TikTok redirige el WebView a snssdk1233://, nunca dejamos que
+        // WebView intente cargar ese esquema: lo entregamos directamente a Android.
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             return true;
         } catch (Exception ignored) {
-            // Si el esquema propio no tiene una aplicación asociada, convertir
-            // el enlace de TikTok a HTTPS para abrirlo en el navegador.
+            // Para esquemas internos sin handler, abrir el perfil HTTPS en el navegador.
             try {
-                if ("snssdk1233".equalsIgnoreCase(scheme)) {
-                    Uri fallback = Uri.parse("https://www.tiktok.com/@sc.latamcommunity");
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, fallback);
-                    browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(browserIntent);
-                    return true;
-                }
+                Uri fallback = Uri.parse("https://www.tiktok.com/@sc.latamcommunity");
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, fallback);
+                browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(browserIntent);
             } catch (Exception ignoredAgain) {
-                // No interrumpir la aplicación si Android no encuentra un handler.
+                // No interrumpir la APK.
             }
+            return true;
         }
-
-        return true;
     }
 
     @Override
