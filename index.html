@@ -48,7 +48,7 @@
       <a href="servidores.html">Servidores</a>
       <a href="historial.html">Historial</a>
     </nav>
-    <a class="btn-header" href="#registro" onclick="mostrarRegistro(); return false;">ÚNETE AHORA</a>
+    <a class="btn-header" href="#" onclick="return false;">ÚNETE AHORA</a>
   </header>
 
   <main>
@@ -59,10 +59,7 @@
           <h2>LATAM COMMUNITY</h2>
           <img class="mobile-sc-logo" src="hero-sc-logo.svg" alt="SC LATAM COMMUNITY">
         </div>
-        <p class="slogan home-slogan">
-          LA COMUNIDAD DE TORNEOS<br>
-          QUE <span>IMPULSA TU NIVEL.</span>
-        </p>
+        <p class="slogan home-slogan">LA COMUNIDAD DE TORNEOS<br>QUE <span>IMPULSA TU NIVEL.</span></p>
       </div>
     </section>
 
@@ -123,9 +120,7 @@
         <div class="panel-title social-title">
           <span class="social-title-line"></span>
           <svg class="social-share-icon" aria-hidden="true" viewBox="0 0 64 64">
-            <circle cx="48" cy="12" r="8"/>
-            <circle cx="16" cy="32" r="8"/>
-            <circle cx="48" cy="52" r="8"/>
+            <circle cx="48" cy="12" r="8"/><circle cx="16" cy="32" r="8"/><circle cx="48" cy="52" r="8"/>
             <path d="M23 28L41 17M23 36l18 11"/>
           </svg>
           <h2>REDES SOCIALES</h2>
@@ -192,9 +187,7 @@
       return false;
     }
 
-    if (window.location.hash === '#registro') {
-      mostrarRegistro();
-    }
+    if (window.location.hash === '#registro') mostrarRegistro();
   </script>
   <script src="registration.js"></script>
   <script>
