@@ -15,10 +15,12 @@ function configurarNavegacionPaginas() {
 
   const enlaces = nav.querySelectorAll("a");
 
+  // Mantener el orden oficial de navegación en todas las páginas.
   if (enlaces[0]) enlaces[0].href = "index.html";
-  if (enlaces[1]) enlaces[1].href = "torneos.html";
-  if (enlaces[2]) enlaces[2].href = "servidores.html";
-  if (enlaces[3]) enlaces[3].href = "historial.html";
+  if (enlaces[1]) enlaces[1].href = "eventos.html";
+  if (enlaces[2]) enlaces[2].href = "torneos.html";
+  if (enlaces[3]) enlaces[3].href = "servidores.html";
+  if (enlaces[4]) enlaces[4].href = "historial.html";
 
   const tarjetaTorneos = document.querySelector(".tournament-card .card-action");
   if (tarjetaTorneos) tarjetaTorneos.href = "torneos.html";
