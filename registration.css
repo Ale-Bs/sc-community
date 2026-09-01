@@ -3,3 +3,6 @@
 /* INICIO: conservar la imagen completa 9:16 sin estirarla ni recortarla. */
 .hero.home-hero{background-image:linear-gradient(rgba(4,8,26,.18),rgba(4,8,26,.55)),url("assets/fondo-inicio-sc.svg")!important;background-size:contain!important;background-position:center top!important;background-repeat:no-repeat!important;background-color:#050816!important}
 @media(min-width:769px){.hero.home-hero{background-size:140% auto!important;min-height:680px}}
+
+/* Footer: fundir con el fondo general y eliminar el corte visual. */
+footer{background:#050816!important;border-top:0!important;box-shadow:none!important}
