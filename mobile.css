@@ -22,4 +22,6 @@ footer{display:none!important}
 .history-page{background-image:radial-gradient(circle at 50% 0,rgba(242,189,66,.2),transparent 36%),linear-gradient(180deg,#0b0d20,#030511)!important}
 .events-page::after,.tournaments-page::after,.history-page::after{content:"Todos los derechos reservados.\A © Copyright 2026. SC - Infinity Studios, Inc.";display:block;white-space:pre;text-align:center;color:rgba(255,255,255,.62);font-size:13px;line-height:1.6;margin:48px 0 0}
 .minecraft-page::after{content:"Todos los derechos reservados.\A © Copyright 2026. SC - Infinity Studios, Inc.";position:absolute;left:0;right:0;bottom:18px;text-align:center;white-space:pre;color:rgba(255,255,255,.62);font-size:13px;line-height:1.6}
-@media(max-width:768px){.events-page::after,.tournaments-page::after,.history-page::after{font-size:10px;margin-top:28px}.minecraft-page::after{font-size:10px;bottom:12px}}
+/* Inicio también lleva el copyright integrado al final de todo su contenido. */
+main:has(.home-hero)::after{content:"Todos los derechos reservados.\A © Copyright 2026. SC - Infinity Studios, Inc.";display:block;white-space:pre;text-align:center;color:rgba(255,255,255,.62);font-size:13px;line-height:1.6;margin:18px 0 48px}
+@media(max-width:768px){.events-page::after,.tournaments-page::after,.history-page::after{font-size:10px;margin-top:28px}.minecraft-page::after{font-size:10px;bottom:12px}main:has(.home-hero)::after{font-size:10px;margin:0 0 28px}}
