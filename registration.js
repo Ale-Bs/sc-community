@@ -22,9 +22,6 @@ function configurarNavegacionPaginas() {
   if (enlaces[3]) enlaces[3].href = "servidores.html";
   if (enlaces[4]) enlaces[4].href = "historial.html";
 
-  const tarjetaTorneos = document.querySelector(".tournament-card .card-action");
-  if (tarjetaTorneos) tarjetaTorneos.href = "torneos.html";
-
   const botonHistorial = document.querySelector(".champions-panel .panel-action");
   if (botonHistorial) botonHistorial.href = "historial.html";
 }
