@@ -14,9 +14,17 @@
   <script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments)};</script><script defer src="/_vercel/speed-insights/script.js"></script>
   <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="panel-headers.css"><link rel="stylesheet" href="mobile.css"><link rel="stylesheet" href="registration.css">
   <style>
-    .home-hero{background-image:url("assets/fondo-inicio-sc.svg")!important;background-size:auto 135%;background-position:center;background-repeat:no-repeat;min-height:580px}
-    @media (min-width:901px){.home-hero{background-size:400% auto!important;min-height:680px}}
-    @media (min-width:769px){main:has(.home-hero){background-image:url("assets/fondo-inicio-sc.svg")!important;background-size:100% auto!important;background-position:top center!important;background-repeat:no-repeat!important;background-color:#020817!important}main:has(.home-hero) .home-hero{background-image:none!important;background-color:transparent!important}}
+    .home-hero{background:none!important;min-height:580px}
+    @media (min-width:901px){.home-hero{min-height:680px}}
+    @media (min-width:769px){
+      main:has(.home-hero){
+        background-image:url("assets/fondo-inicio-sc.svg")!important;
+        background-size:100% auto!important;
+        background-position:top center!important;
+        background-repeat:no-repeat!important;
+        background-color:#020817!important;
+      }
+    }
   </style>
 </head>
 <body>
